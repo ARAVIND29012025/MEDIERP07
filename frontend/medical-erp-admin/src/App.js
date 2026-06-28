@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Company from './pages/Company';
@@ -16,16 +17,16 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/company" element={<Company />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/supplier" element={<Supplier />} />
-        <Route path="/customer" element={<Customer />} />
-        <Route path="/medicine" element={<Medicine />} />
-        <Route path="/purchase" element={<Purchase />} />
-        <Route path="/sales" element={<Sales />} />
-        <Route path="/reports" element={<Reports />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/company" element={<ProtectedRoute><Company /></ProtectedRoute>} />
+        <Route path="/category" element={<ProtectedRoute><Category /></ProtectedRoute>} />
+        <Route path="/supplier" element={<ProtectedRoute><Supplier /></ProtectedRoute>} />
+        <Route path="/customer" element={<ProtectedRoute><Customer /></ProtectedRoute>} />
+        <Route path="/medicine" element={<ProtectedRoute><Medicine /></ProtectedRoute>} />
+        <Route path="/purchase" element={<ProtectedRoute><Purchase /></ProtectedRoute>} />
+        <Route path="/sales" element={<ProtectedRoute><Sales /></ProtectedRoute>} />
+        <Route path="/reports" element={<ProtectedRoute><Reports /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
       </Routes>
     </Router>
   );

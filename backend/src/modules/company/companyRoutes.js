@@ -6,7 +6,12 @@ const verifyToken = require("../../middleware/authMiddleware");
 
 const companyController = require("./companyController");
 
-
+// Company List
+router.get(
+    "/",
+    verifyToken,
+    companyController.getAllCompanies
+);
 
 router.post(
     "/",
