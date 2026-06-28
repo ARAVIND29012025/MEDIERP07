@@ -1,0 +1,45 @@
+medical-erp-api/
+│
+├── src/
+│   ├── config/
+│   │      db.js
+│   │      jwt.js
+│   │
+│   ├── middleware/
+│   │      authMiddleware.js
+│   │      upload.js
+│   │      errorMiddleware.js
+│   │
+│   ├── modules/
+│   │
+│   │── auth/
+│   │      authController.js
+│   │      authRoutes.js
+│   │      authService.js
+│   │
+│   │── dashboard/
+│   │── company/
+│   │── category/
+│   │── manufacturer/
+│   │── supplier/
+│   │── customer/
+│   │── doctor/
+│   │── medicine/
+│   │── purchase/
+│   │── sales/
+│   │── inventory/
+│   │── reports/
+│   │── settings/
+│   │
+│   ├── utils/
+│   │      mail.js
+│   │      otp.js
+│   │      whatsapp.js
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── uploads/
+├── .env
+├── package.json
+└── README.md
