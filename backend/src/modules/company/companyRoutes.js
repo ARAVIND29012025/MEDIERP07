@@ -2,16 +2,22 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+const verifyToken = require("../../middleware/authMiddleware");
 
-    res.json({
+const companyController = require("./companyController");
 
-        success: true,
 
-        message: "Company Module Working"
 
-    });
+router.post(
+    "/",
+    verifyToken,
+    companyController.addCompany
+);
 
-});
+router.get(
+    "/:id",
+    verifyToken,
+    companyController.getCompanyById
+);
 
 module.exports = router;
