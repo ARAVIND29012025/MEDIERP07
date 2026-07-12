@@ -25,4 +25,15 @@ router.get(
     companyController.getCompanyById
 );
 
+router.put(
+    "/:id",
+    verifyToken,
+    companyController.updateCompany
+);
+router.delete(
+    "/:id",
+    verifyToken,
+    companyController.deleteCompany
+);
+
 module.exports = router;
