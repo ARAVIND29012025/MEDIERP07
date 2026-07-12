@@ -16,6 +16,11 @@ const taxRoutes = require("./modules/tax/taxRoutes");
 const supplierRoutes = require("./modules/supplier/supplierRoutes");
 const customerRoutes = require("./modules/customer/customerRoutes");
 const doctorRoutes = require("./modules/doctor/doctorRoutes");
+const medicineRoutes = require("./modules/medicine/medicineRoutes");
+const medicinePackingRoutes = require("./modules/medicinePacking/medicinePackingRoutes");
+const purchaseRoutes = require("./modules/purchase/purchaseRoutes");
+const salesRoutes =
+require("./modules/sales/salesRoutes");
 const app = express();
 
 // ==========================
@@ -64,6 +69,10 @@ app.use("/api/tax", taxRoutes);
 app.use("/api/supplier", supplierRoutes);
 app.use("/api/customer", customerRoutes);
 app.use("/api/doctor", doctorRoutes);
+app.use("/api/medicine", medicineRoutes);
+app.use("/api/medicine-packing", medicinePackingRoutes);
+app.use("/api/purchase", purchaseRoutes);
+app.use("/api/sales", salesRoutes);
 
 // ==========================
 // 404 Route
