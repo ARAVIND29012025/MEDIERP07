@@ -19,7 +19,7 @@ import { authAPI } from '../api/apiServices'
 import { toast } from 'react-toastify'
 
 const validationSchema = yup.object({
-  email: yup.string().email('Invalid email').required('Email is required'),
+  username: yup.string().required('Username is required'),
   password: yup.string().required('Password is required').min(6, 'Password must be at least 6 characters'),
 })
 
@@ -29,7 +29,7 @@ const Login = () => {
   const { loading, error, isAuthenticated } = useSelector(state => state.auth)
   const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(validationSchema),
-    defaultValues: { email: '', password: '' },
+    defaultValues: { username: '', password: '' },
   })
 
   // Redirect if already authenticated
@@ -41,7 +41,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       dispatch(setLoading(true))
-      const response = await authAPI.login(data.email, data.password)
+      const response = await authAPI.login(data.username, data.password)
       
       dispatch(loginSuccess({
         user: response.data.user,
@@ -90,17 +90,17 @@ const Login = () => {
 
           <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ width: '100%' }}>
             <Controller
-              name="email"
+              name="username"
               control={control}
               render={({ field }) => (
                 <TextField
                   {...field}
-                  label="Email"
-                  type="email"
+                  label="Username"
+                  type="text"
                   fullWidth
                   margin="normal"
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
+                  error={!!errors.username}
+                  helperText={errors.username?.message}
                   disabled={loading}
                 />
               )}
@@ -138,9 +138,9 @@ const Login = () => {
           <Typography variant="body2" sx={{ mt: 2, color: 'text.secondary', textAlign: 'center' }}>
             Demo Credentials:
             <br />
-            Email: admin@medicalepr.com
+            Username: admin
             <br />
-            Password: password123
+            Password: admin123
           </Typography>
         </Paper>
       </Container>

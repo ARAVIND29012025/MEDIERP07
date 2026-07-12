@@ -2,8 +2,8 @@ import axiosInstance from './axiosInstance'
 
 // Authentication APIs
 export const authAPI = {
-  login: (email, password) => 
-    axiosInstance.post('/auth/login', { email, password }),
+  login: (username, password) => 
+    axiosInstance.post('/auth/login', { username, password }),
   logout: () => 
     axiosInstance.post('/auth/logout'),
   refreshToken: () => 
