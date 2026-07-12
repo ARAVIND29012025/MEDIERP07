@@ -152,3 +152,10 @@ GO
 
 
 
+ALTER TABLE sale_return_items
+ADD COLUMN base_return_qty INT NOT NULL DEFAULT 0 AFTER return_qty,
+ADD COLUMN remarks VARCHAR(255) NULL AFTER amount;
+
+GO
+
+
